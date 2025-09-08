@@ -13,9 +13,13 @@ Gestionnaire de connexions Wi-Fi pour systèmes sans interface graphique.
 ## Installation
 
 ```bash
-sudo chmod +x /opt/wifi-manager/*.sh
-sudo systemctl daemon-reload
-sudo systemctl enable wifi-manager
-sudo systemctl start wifi-manager
+sudo -i
+cd /opt
+git clone https://github.com/bzhkem/wifi-manager.git
+cp /opt/wifi-manager/systemd/wifi-manager.service /etc/systemd/system/
+chmod +x /opt/wifi-manager/*.sh
+systemctl daemon-reload
+systemctl enable wifi-manager
+systemctl start wifi-manager
 sudo /opt/wifi-manager/wifi_manager.sh
 ```
